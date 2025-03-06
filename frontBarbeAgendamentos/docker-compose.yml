@@ -1,0 +1,17 @@
+services:
+  ui:
+    build:
+      context: .
+    ports:
+      - '4200:4200'
+    volumes:
+      - .:/front-barbearia-agendamentos
+    command: ng serve --host 0.0.0.0
+    stdin_open: true
+    networks:
+      - agendamento-barbearia-net
+
+networks:
+  agendamento-barbearia-net:
+    name: agendamento-barbearia-net
+    external: true
